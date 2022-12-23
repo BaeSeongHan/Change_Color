@@ -73,13 +73,9 @@ public class BlockControl : MonoBehaviour
     //-----
     public int loadNum = 0;
     public int rootNum = 0;
-
-
-
-    public bool loadCK = false;
     //-----
 
-    public bool fillcolor = false;
+    //public bool fillcolor = false;
 
     public Block.COLOR color = (Block.COLOR)0; // 블록 색.
     public BlockRoot block_root = null; // 블록의 신.
@@ -248,7 +244,6 @@ public class BlockControl : MonoBehaviour
                 case Block.COLOR.PEACH:
                     color_value = PEACH.color; break;
                 case Block.COLOR.CRIMSON:
-                    //color_value = Color.magenta; break;
                     color_value = CRIMSON.color; break;
                 case Block.COLOR.INDIGO:
                     color_value = INDIGO.color; break;
@@ -258,40 +253,8 @@ public class BlockControl : MonoBehaviour
                     color_value = LIGHTGREEN.color; break;
                 case Block.COLOR.TURQUOISE:
                     color_value = TURQUOISE.color; break;
-                    /*
-                case Block.COLOR.NONE:
-                    color_value = Color.Lerp(Color.black, Color.white, 0.5f); break;
-                case Block.COLOR.GRAY:
-                    color_value = Color.Lerp(Color.gray, Color.white, 0.5f); break;
-                case Block.COLOR.RED:
-                    color_value = Color.Lerp(Color.red, Color.white, 0.5f); break;
-                case Block.COLOR.BLUE:
-                    color_value = Color.Lerp(Color.blue, Color.white, 0.5f); break;
-                case Block.COLOR.YELLOW:
-                    color_value = Color.Lerp(Color.yellow, Color.white, 0.5f); break;
-                case Block.COLOR.ORANGE:
-                    color_value = Color.Lerp(ORANGE.color, Color.white, 0.5f); break;
-                case Block.COLOR.PURPLE:
-                    color_value = Color.Lerp(PURPLE.color, Color.white, 0.5f); break;
-                case Block.COLOR.GREEN:
-                    color_value = Color.Lerp(Color.green, Color.white, 0.5f); break;
-                case Block.COLOR.PEACH:
-                    color_value = Color.Lerp(PEACH.color, Color.white, 0.5f); break;
-                case Block.COLOR.CRIMSON:
-                    color_value = Color.Lerp(Color.magenta, Color.white, 0.5f); break;
-                case Block.COLOR.INDIGO:
-                    color_value = Color.Lerp(INDIGO.color, Color.white, 0.5f); break;
-                case Block.COLOR.REDPURPLE:
-                    color_value = Color.Lerp(REDPURPLE.color, Color.white, 0.5f); break;
-                case Block.COLOR.LIGHTGREEN:
-                    color_value = Color.Lerp(LIGHTGREEN.color, Color.white, 0.5f); break;
-                case Block.COLOR.TURQUOISE:
-                    color_value = Color.Lerp(TURQUOISE.color, Color.white, 0.5f); break;
-                    */
-
             }
             this.GetComponent<Renderer>().material.color = color_value; // 이 게임 오브젝트의 색상을 변경한다.
-
         }
         else
         {
@@ -320,7 +283,6 @@ public class BlockControl : MonoBehaviour
                 case Block.COLOR.PEACH:
                     color_value = PEACH.color; break;
                 case Block.COLOR.CRIMSON:
-                    //color_value = Color.magenta; break;
                     color_value = CRIMSON.color; break;
                 case Block.COLOR.INDIGO:
                     color_value = INDIGO.color; break;
@@ -330,12 +292,9 @@ public class BlockControl : MonoBehaviour
                     color_value = LIGHTGREEN.color; break;
                 case Block.COLOR.TURQUOISE:
                     color_value = TURQUOISE.color; break;
-              
             }
             this.GetComponent<Renderer>().material.color = color_value; // 이 게임 오브젝트의 색상을 변경한다.
-
         }
-
     }
 
     //오브젝트 모양 변경-------------------------------------
@@ -354,8 +313,7 @@ public class BlockControl : MonoBehaviour
                 break;
             case Block.PREFAB.FILLBLOCK:
                 prefab_mesh = fillblock_mesh;
-                break;
-                
+                break;   
         }
         this.GetComponent<MeshFilter>().mesh = prefab_mesh;
     }
@@ -397,6 +355,4 @@ public class BlockControl : MonoBehaviour
         return (ret);
     }
     //-----------------------------------------------------------------------------------------------
-
-
 }

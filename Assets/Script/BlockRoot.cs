@@ -13,10 +13,10 @@ public class BlockRoot : MonoBehaviour
     public Text dietext;
 
 
-    public GameObject C; //클리어 UI
-    public GameObject D; //다이 UI
+    public GameObject ClearUI; //클리어 UI
+    public GameObject DieUI; //다이 UI
 
-    public GameObject J; //제이슨 파일 가져올거
+    public GameObject JsonObject; //제이슨 파일 가져올거
 
     public GameObject BlockPrefab = null; // 만들어낼 블록의 프리팹.
 
@@ -60,7 +60,6 @@ public class BlockRoot : MonoBehaviour
         }
         else
         {
-
             //블록 교체------------------------------------------------------------------------------------
             do
             {
@@ -88,10 +87,6 @@ public class BlockRoot : MonoBehaviour
             } while (false);
             //-------------------------------------------------------------------------------------
 
-
-
-
-
             // 블록을 잡았을 때.
             if (!Input.GetMouseButton(0))
             { // 마우스 버튼이 눌려져 있지 않으면.
@@ -100,8 +95,7 @@ public class BlockRoot : MonoBehaviour
             } // grabbed_block을 비우게 설정.
         }
 
-        //EndGame();
-        CKKKKKK();
+        FailCut();
         ChangeUI();
         End();
 
@@ -200,10 +194,6 @@ public class BlockRoot : MonoBehaviour
         return (opposit);
     }
 
-    //이거도 겁나 많이 바꿔야한다.
-    //이거도 겁나 많이 바꿔야한다.
-    //이거도 겁나 많이 바꿔야한다.
-    //이거도 겁나 많이 바꿔야한다.
     public void swapBlock(BlockControl block0, Block.DIR4 dir, BlockControl block1)
     { // 실제로 블록을 교체.
 
@@ -669,9 +659,7 @@ public class BlockRoot : MonoBehaviour
                 block1.beginSlide(offset1); // 이동할 위치의 블록 이동을 시작한다.
                 SoundMAnager.instance.DontMoveSound();
             }
-        }
-
-        
+        } 
     }
 
 
@@ -694,55 +682,55 @@ public class BlockRoot : MonoBehaviour
             for (int x = 0; x < Block.BLOCK_NUM_X; x++)
             { // 왼쪽~오른쪽
 
-                if (J.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 0)
+                if (JsonObject.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 0)
                 {
                     color_index = 0;
                 }
-                else if (J.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 1)
+                else if (JsonObject.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 1)
                 {
                     color_index = 1;
                 }
-                else if (J.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 2)
+                else if (JsonObject.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 2)
                 {
                     color_index = 2;
                 }
-                else if (J.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 3)
+                else if (JsonObject.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 3)
                 {
                     color_index = 3;
                 }
-                else if (J.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 4)
+                else if (JsonObject.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 4)
                 {
                     color_index = 4;
                 }
-                else if (J.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 5)
+                else if (JsonObject.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 5)
                 {
                     color_index = 5;
                 }
-                else if (J.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 6)
+                else if (JsonObject.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 6)
                 {
                     color_index = 6;
                 }
-                else if (J.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 7)
+                else if (JsonObject.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 7)
                 {
                     color_index = 7;
                 }
-                else if (J.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 8)
+                else if (JsonObject.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 8)
                 {
                     color_index = 8;
                 }
-                else if (J.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 9)
+                else if (JsonObject.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 9)
                 {
                     color_index = 9;
                 }
-                else if (J.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 10)
+                else if (JsonObject.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 10)
                 {
                     color_index = 10;
                 }
-                else if (J.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 11)
+                else if (JsonObject.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 11)
                 {
                     color_index = 11;
                 }
-                else if (J.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 12)
+                else if (JsonObject.GetComponent<Json>().BLOCK_COLOR.map[x].mapX[y] == 12)
                 {
                     color_index = 12;
                 }
@@ -751,15 +739,15 @@ public class BlockRoot : MonoBehaviour
                     color_index = -1;
                 }
 
-                if (J.GetComponent<Json>().BLOCK_STATE.map[x].mapX[y] == 0)
+                if (JsonObject.GetComponent<Json>().BLOCK_STATE.map[x].mapX[y] == 0)
                 {
                     mesh_index = 0;
                 }
-                else if (J.GetComponent<Json>().BLOCK_STATE.map[x].mapX[y] == 1)
+                else if (JsonObject.GetComponent<Json>().BLOCK_STATE.map[x].mapX[y] == 1)
                 {
                     mesh_index = 1;
                 }
-                else if (J.GetComponent<Json>().BLOCK_STATE.map[x].mapX[y] == 2)
+                else if (JsonObject.GetComponent<Json>().BLOCK_STATE.map[x].mapX[y] == 2)
                 {
                     mesh_index = 2;
                 }
@@ -797,111 +785,7 @@ public class BlockRoot : MonoBehaviour
     }
     //---------------------
 
-
-    public int p_C; //핑크블록 카운트
-    public int o_C; //오랜지블록 카운트
-
-
-    public int PPP; //1인 수
-
-    public bool pBool = true; //핑크색 불
-
-    //End 조건
-    //---------------------
-    public void EndGame()
-    {
-        //이거는 블록이 교채됬을 때만 실행
-
-        int p = 0;
-        int o = 0;
-
-        for (int y = 0; y < Block.BLOCK_NUM_Y; y++)
-        {
-            for (int x = 0; x < Block.BLOCK_NUM_X; x++)
-            {
-                if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0)
-                {
-                    if (blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)0)
-                    {
-
-                    }
-                    else if (blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)5)
-                    {
-                        o++;
-                    }
-                    else if (blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)6)
-                    {
-                        p++;
-                    }
-                }
-            }
-        }
-        p_C = p;
-        o_C = o;
-
-
-        int pink_1 = 0;
-
-        for (int y = 0; y < Block.BLOCK_NUM_Y; y++)
-        {
-            for (int x = 0; x < Block.BLOCK_NUM_X; x++)
-            {
-                if (p_C > 2)
-                {
-                    if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0 && blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)6)
-                    {
-                        //상하좌우 비교해야한다.
-                        //상 비교
-
-                        if (x + 1 < Block.BLOCK_NUM_X && y + 1 < Block.BLOCK_NUM_Y && x != 0 && y != 0)
-                        {
-
-                            int p1 = 0;
-
-                            if (blocks[x, y].gameObject.GetComponent<BlockControl>().color == blocks[x, y + 1].gameObject.GetComponent<BlockControl>().color && blocks[x, y + 1].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0)
-                            {
-                                //같은게 있다
-                                //continue;
-                                p1++;
-                            }//상비교
-                            if (blocks[x, y].gameObject.GetComponent<BlockControl>().color == blocks[x, y - 1].gameObject.GetComponent<BlockControl>().color && blocks[x, y - 1].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0)
-                            {
-                                p1++;
-                                //continue;
-                            }//하비교
-                            if (blocks[x, y].gameObject.GetComponent<BlockControl>().color == blocks[x - 1, y].gameObject.GetComponent<BlockControl>().color && blocks[x - 1, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0)
-                            {
-                                p1++;
-                                //continue;
-                            }//좌비교
-                            if (blocks[x, y].gameObject.GetComponent<BlockControl>().color == blocks[x + 1, y].gameObject.GetComponent<BlockControl>().color && blocks[x + 1, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0)
-                            {
-                                p1++;
-                                //continue;
-                            }//우비교
-
-                            //p1은 갈수있는 길의 수 이걸 각 노드의 변수에 집어넣어
-
-
-                            blocks[x, y].gameObject.GetComponent<BlockControl>().loadNum = p1;
-
-
-
-                            //위 조건에 해당하는게 없다면
-                            //pBool = false;
-                            //return;
-                        }
-                    }
-                }
-            }
-        }
-
-        if (pink_1 > 2)
-        {
-            pBool = false;
-        }
-
-    }
+    //게임 클리어 조건
     public void End()
     {
         for (int y = 0; y < Block.BLOCK_NUM_Y; y++)
@@ -914,13 +798,11 @@ public class BlockRoot : MonoBehaviour
                 }
             }
         }
-
         isClear = true;
-
     }
 
-    //---------------------실패조건(끊어졌을때)
-    public void CKKKKKK()
+    //게임 실패조건(끊어졌을때)
+    public void FailCut()
     {
         //이거 색 수많큼 있어야한다.
         int num1 = 0;
@@ -1022,22 +904,17 @@ public class BlockRoot : MonoBehaviour
             }
         }
 
-
+        //연결된 블록 연결시키기
         for (int y = 0; y < Block.BLOCK_NUM_Y; y++)
         {
             for (int x = 0; x < Block.BLOCK_NUM_X; x++)
             {
                 if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0)
                 {
-                    //상하좌우 비교해야한다.
-                    //상 비교
-
                     if (x + 1 < Block.BLOCK_NUM_X && y + 1 < Block.BLOCK_NUM_Y && x != 0 && y != 0)
                     {
                         if (blocks[x, y].gameObject.GetComponent<BlockControl>().color == blocks[x, y + 1].gameObject.GetComponent<BlockControl>().color && blocks[x, y + 1].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0)
                         {
-                            //같은게 있다
-                            //작거나 같은지 판별 지금이 더 크면
                             if (blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum >= blocks[x, y + 1].gameObject.GetComponent<BlockControl>().rootNum)
                             {
                                 blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum = blocks[x, y + 1].gameObject.GetComponent<BlockControl>().rootNum;
@@ -1204,54 +1081,9 @@ public class BlockRoot : MonoBehaviour
             }
         }
 
-        for (int y = 0; y < Block.BLOCK_NUM_Y; y++)
+        for (int x = Block.BLOCK_NUM_X - 1; x >= 0; x--)
         {
-            for (int x = 0; x < Block.BLOCK_NUM_X; x++)
-            {
-                if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0)
-                {
-                    //상하좌우 비교해야한다.
-                    //상 비교
-
-                    if (x + 1 < Block.BLOCK_NUM_X && y + 1 < Block.BLOCK_NUM_Y && x != 0 && y != 0)
-                    {
-                        if (blocks[x, y].gameObject.GetComponent<BlockControl>().color == blocks[x, y + 1].gameObject.GetComponent<BlockControl>().color && blocks[x, y + 1].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0)
-                        {
-                            //같은게 있다
-                            //작거나 같은지 판별 지금이 더 크면
-                            if (blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum >= blocks[x, y + 1].gameObject.GetComponent<BlockControl>().rootNum)
-                            {
-                                blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum = blocks[x, y + 1].gameObject.GetComponent<BlockControl>().rootNum;
-                            }
-                        }//상비교
-                        if (blocks[x, y].gameObject.GetComponent<BlockControl>().color == blocks[x, y - 1].gameObject.GetComponent<BlockControl>().color && blocks[x, y - 1].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0)
-                        {
-                            if (blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum >= blocks[x, y - 1].gameObject.GetComponent<BlockControl>().rootNum)
-                            {
-                                blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum = blocks[x, y - 1].gameObject.GetComponent<BlockControl>().rootNum;
-                            }
-                        }//하비교
-                        if (blocks[x, y].gameObject.GetComponent<BlockControl>().color == blocks[x - 1, y].gameObject.GetComponent<BlockControl>().color && blocks[x - 1, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0)
-                        {
-                            if (blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum >= blocks[x - 1, y].gameObject.GetComponent<BlockControl>().rootNum)
-                            {
-                                blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum = blocks[x - 1, y].gameObject.GetComponent<BlockControl>().rootNum;
-                            }
-                        }//좌비교
-                        if (blocks[x, y].gameObject.GetComponent<BlockControl>().color == blocks[x + 1, y].gameObject.GetComponent<BlockControl>().color && blocks[x + 1, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0)
-                        {
-                            if (blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum >= blocks[x + 1, y].gameObject.GetComponent<BlockControl>().rootNum)
-                            {
-                                blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum = blocks[x + 1, y].gameObject.GetComponent<BlockControl>().rootNum;
-                            }
-                        }//우비교
-                    }
-                }
-            }
-        }
-        for (int x = 0; x < Block.BLOCK_NUM_X; x++)
-        {
-            for (int y = 0; y < Block.BLOCK_NUM_Y; y++)
+            for (int y = Block.BLOCK_NUM_Y - 1; y >= 0; y--)
             {
                 if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0)
                 {
@@ -1339,9 +1171,54 @@ public class BlockRoot : MonoBehaviour
                 }
             }
         }
-        for (int x = Block.BLOCK_NUM_X - 1; x >= 0; x--)
+        for (int x = 0; x < Block.BLOCK_NUM_X; x++)
         {
-            for (int y = Block.BLOCK_NUM_Y - 1; y >= 0; y--)
+            for (int y = 0; y < Block.BLOCK_NUM_Y; y++)
+            {
+                if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0)
+                {
+                    //상하좌우 비교해야한다.
+                    //상 비교
+
+                    if (x + 1 < Block.BLOCK_NUM_X && y + 1 < Block.BLOCK_NUM_Y && x != 0 && y != 0)
+                    {
+                        if (blocks[x, y].gameObject.GetComponent<BlockControl>().color == blocks[x, y + 1].gameObject.GetComponent<BlockControl>().color && blocks[x, y + 1].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0)
+                        {
+                            //같은게 있다
+                            //작거나 같은지 판별 지금이 더 크면
+                            if (blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum >= blocks[x, y + 1].gameObject.GetComponent<BlockControl>().rootNum)
+                            {
+                                blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum = blocks[x, y + 1].gameObject.GetComponent<BlockControl>().rootNum;
+                            }
+                        }//상비교
+                        if (blocks[x, y].gameObject.GetComponent<BlockControl>().color == blocks[x, y - 1].gameObject.GetComponent<BlockControl>().color && blocks[x, y - 1].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0)
+                        {
+                            if (blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum >= blocks[x, y - 1].gameObject.GetComponent<BlockControl>().rootNum)
+                            {
+                                blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum = blocks[x, y - 1].gameObject.GetComponent<BlockControl>().rootNum;
+                            }
+                        }//하비교
+                        if (blocks[x, y].gameObject.GetComponent<BlockControl>().color == blocks[x - 1, y].gameObject.GetComponent<BlockControl>().color && blocks[x - 1, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0)
+                        {
+                            if (blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum >= blocks[x - 1, y].gameObject.GetComponent<BlockControl>().rootNum)
+                            {
+                                blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum = blocks[x - 1, y].gameObject.GetComponent<BlockControl>().rootNum;
+                            }
+                        }//좌비교
+                        if (blocks[x, y].gameObject.GetComponent<BlockControl>().color == blocks[x + 1, y].gameObject.GetComponent<BlockControl>().color && blocks[x + 1, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0)
+                        {
+                            if (blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum >= blocks[x + 1, y].gameObject.GetComponent<BlockControl>().rootNum)
+                            {
+                                blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum = blocks[x + 1, y].gameObject.GetComponent<BlockControl>().rootNum;
+                            }
+                        }//우비교
+                    }
+                }
+            }
+        }
+        for (int y = 0; y < Block.BLOCK_NUM_Y; y++)
+        {
+            for (int x = 0; x < Block.BLOCK_NUM_X; x++)
             {
                 if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0)
                 {
@@ -1385,7 +1262,7 @@ public class BlockRoot : MonoBehaviour
             }
         }
 
-
+        //끊어졌는지 알려주기
         for (int y = 0; y < Block.BLOCK_NUM_Y; y++)
         {
             for (int x = 0; x < Block.BLOCK_NUM_X; x++)
@@ -1399,13 +1276,7 @@ public class BlockRoot : MonoBehaviour
                         Debug.Log("1끊어졋습니다.");
                     }
                 }
-            }
-        }
-        for (int y = 0; y < Block.BLOCK_NUM_Y; y++)
-        {
-            for (int x = 0; x < Block.BLOCK_NUM_X; x++)
-            {
-                if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0 && blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)2)
+                else if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0 && blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)2)
                 {
                     if (blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum != 1)
                     {
@@ -1415,13 +1286,7 @@ public class BlockRoot : MonoBehaviour
                         Debug.Log("2끊어졋습니다.");
                     }
                 }
-            }
-        }
-        for (int y = 0; y < Block.BLOCK_NUM_Y; y++)
-        {
-            for (int x = 0; x < Block.BLOCK_NUM_X; x++)
-            {
-                if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0 && blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)3)
+                else if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0 && blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)3)
                 {
                     if (blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum != 1)
                     {
@@ -1430,13 +1295,7 @@ public class BlockRoot : MonoBehaviour
                         Debug.Log("3끊어졋습니다.");
                     }
                 }
-            }
-        }
-        for (int y = 0; y < Block.BLOCK_NUM_Y; y++)
-        {
-            for (int x = 0; x < Block.BLOCK_NUM_X; x++)
-            {
-                if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0 && blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)4)
+                else if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0 && blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)4)
                 {
                     if (blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum != 1)
                     {
@@ -1445,13 +1304,7 @@ public class BlockRoot : MonoBehaviour
                         Debug.Log("4끊어졋습니다.");
                     }
                 }
-            }
-        }
-        for (int y = 0; y < Block.BLOCK_NUM_Y; y++)
-        {
-            for (int x = 0; x < Block.BLOCK_NUM_X; x++)
-            {
-                if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0 && blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)5)
+                else if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0 && blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)5)
                 {
                     if (blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum != 1)
                     {
@@ -1460,13 +1313,7 @@ public class BlockRoot : MonoBehaviour
                         Debug.Log("5끊어졋습니다.");
                     }
                 }
-            }
-        }
-        for (int y = 0; y < Block.BLOCK_NUM_Y; y++)
-        {
-            for (int x = 0; x < Block.BLOCK_NUM_X; x++)
-            {
-                if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0 && blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)6)
+                else if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0 && blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)6)
                 {
                     if (blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum != 1)
                     {
@@ -1475,13 +1322,7 @@ public class BlockRoot : MonoBehaviour
                         Debug.Log("6끊어졋습니다.");
                     }
                 }
-            }
-        }
-        for (int y = 0; y < Block.BLOCK_NUM_Y; y++)
-        {
-            for (int x = 0; x < Block.BLOCK_NUM_X; x++)
-            {
-                if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0 && blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)7)
+                else if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0 && blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)7)
                 {
                     if (blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum != 1)
                     {
@@ -1490,13 +1331,7 @@ public class BlockRoot : MonoBehaviour
                         Debug.Log("7끊어졋습니다.");
                     }
                 }
-            }
-        }
-        for (int y = 0; y < Block.BLOCK_NUM_Y; y++)
-        {
-            for (int x = 0; x < Block.BLOCK_NUM_X; x++)
-            {
-                if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0 && blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)8)
+                else if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0 && blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)8)
                 {
                     if (blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum != 1)
                     {
@@ -1505,13 +1340,7 @@ public class BlockRoot : MonoBehaviour
                         Debug.Log("8끊어졋습니다.");
                     }
                 }
-            }
-        }
-        for (int y = 0; y < Block.BLOCK_NUM_Y; y++)
-        {
-            for (int x = 0; x < Block.BLOCK_NUM_X; x++)
-            {
-                if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0 && blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)9)
+                else if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0 && blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)9)
                 {
                     if (blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum != 1)
                     {
@@ -1520,13 +1349,7 @@ public class BlockRoot : MonoBehaviour
                         Debug.Log("9끊어졋습니다.");
                     }
                 }
-            }
-        }
-        for (int y = 0; y < Block.BLOCK_NUM_Y; y++)
-        {
-            for (int x = 0; x < Block.BLOCK_NUM_X; x++)
-            {
-                if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0 && blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)10)
+                else if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0 && blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)10)
                 {
                     if (blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum != 1)
                     {
@@ -1535,13 +1358,7 @@ public class BlockRoot : MonoBehaviour
                         Debug.Log("10끊어졋습니다.");
                     }
                 }
-            }
-        }
-        for (int y = 0; y < Block.BLOCK_NUM_Y; y++)
-        {
-            for (int x = 0; x < Block.BLOCK_NUM_X; x++)
-            {
-                if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0 && blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)11)
+                else if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0 && blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)11)
                 {
                     if (blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum != 1)
                     {
@@ -1550,13 +1367,7 @@ public class BlockRoot : MonoBehaviour
                         Debug.Log("11끊어졋습니다.");
                     }
                 }
-            }
-        }
-        for (int y = 0; y < Block.BLOCK_NUM_Y; y++)
-        {
-            for (int x = 0; x < Block.BLOCK_NUM_X; x++)
-            {
-                if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0 && blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)12)
+                else if (blocks[x, y].gameObject.GetComponent<BlockControl>().prefab == (Block.PREFAB)0 && blocks[x, y].gameObject.GetComponent<BlockControl>().color == (Block.COLOR)12)
                 {
                     if (blocks[x, y].gameObject.GetComponent<BlockControl>().rootNum != 1)
                     {
@@ -1568,7 +1379,6 @@ public class BlockRoot : MonoBehaviour
             }
         }
     }
-
     //-------------------UI관련
     public void ChangeUI()
     {
@@ -1583,7 +1393,7 @@ public class BlockRoot : MonoBehaviour
 
             //시간 멈추기
             Time.timeScale = 0;
-            D.gameObject.SetActive(true);
+            DieUI.gameObject.SetActive(true);
         }
 
         if (isClear == true)
@@ -1596,11 +1406,9 @@ public class BlockRoot : MonoBehaviour
 
            
             Time.timeScale = 0;
-            C.gameObject.SetActive(true);
+            ClearUI.gameObject.SetActive(true);
         }
     }
-
-
 
     public List<int[,]> S_L = new List<int[,]>();
     public List<int[,]> C_L = new List<int[,]>();
